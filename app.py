@@ -35,7 +35,6 @@ df['total'] = df.iloc[:, 4:10].sum(axis=1)
 # change columns
 col = list(df.columns)
 df = df[col[0:4]+[col[-1]]+col[4:12]]
-print("*******")
 # print(df.head(1))
 df.to_csv('modified.csv')
 # filter data
@@ -49,6 +48,5 @@ df.loc[df['Type 1'].str.contains('Fire|Grass', regex=True)]
 # aggregate stat
 df.groupby(['Type 1']).mean().sort_values('Defense', ascending=True)
 df.groupby(['Type 1']).count()
-df['count']=1
-f=df.groupby(['Type 1']).count()['count']
-print(f)
+df['count'] = 1
+df.groupby(['Type 1']).count()['count']
